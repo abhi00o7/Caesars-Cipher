@@ -8,14 +8,14 @@
 function rot13(str) {
     // create an array from [A-Z] using Array.fill & map
     const alphabet = new Array(26).fill(1).map((_, index) => String.fromCharCode(65 + index))
-
+    let position
 
     return str
         .split('')
-        .map((element) => alphabet.indexOf(element) != -1 ?
-            alphabet.indexOf(element) > 12 ?
-            element = alphabet[alphabet.indexOf(element) - 13] :
-            element = alphabet[alphabet.indexOf(element) + 13] :
+        .map((element) => ( position = alphabet.indexOf(element)) != -1 ?
+            position > 12 ?
+            element = alphabet[position - 13] :
+            element = alphabet[position + 13] :
             element)
         .join('')
 
