@@ -5,3 +5,16 @@
 
 // All letters will be uppercase. Do not transform any non-alphabetic character (i.e. spaces, punctuation), but do pass them on.
 
+function rot13(str) {
+    // create an array from [A-Z] using Array.fill & map
+    const alphabet = new Array(26).fill(1).map((_, index) => String.fromCharCode(65 + index))
+
+
+    return str
+                .split('')
+                .map((element) => alphabet.indexOf(element) != -1 ? alphabet.indexOf(element) > 12 ? element = alphabet[alphabet.indexOf(element) - 13] : element = alphabet[alphabet.indexOf(element) + 13] : element)
+                .join('')
+
+}
+
+console.log(rot13("SERR PBQR PNZC"))
